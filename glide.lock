@@ -1,0 +1,18 @@
+hash: 52c6b34bc9bf3823b73244a4954c2ba8ca914e1b90c05d8ca33a3f81a4a57b87
+updated: 2017-05-26T17:54:56.037730993+09:00
+imports:
+- name: github.com/google/uuid
+  version: 6a5e28554805e78ea6141142aba763936c4761c0
+- name: github.com/kelseyhightower/envconfig
+  version: 70f0258d44cbaa3b6a2581d82f58da01a38e4de4
+- name: github.com/nlopes/slack
+  version: 72d15a0fc0b773a59c00f78b9e7d97eeb8c4281f
+- name: golang.org/x/net
+  version: b8b13433cc9973c2ad1c7217f0cf4a59d00b135d
+  subpackages:
+  - websocket
+- name: golang.org/x/sync
+  version: f52d1811a62927559de87708c8913c1650ce4f26
+  subpackages:
+  - syncmap
+testImports: []
