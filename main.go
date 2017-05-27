@@ -87,11 +87,11 @@ func interactiveActionHandler(w http.ResponseWriter, r *http.Request) {
 	msg := callbackPayload.OriginalMessage
 	switch callbackPayload.Actions[0].Name {
 	case "approve":
-		ch.(chan bool) <- true
+		sendWithoutBlocking(ch.(chan bool), true)
 		msg.Attachments[0].Text = fmt.Sprintf("Approved by @%s", callbackPayload.User.Name)
 		msg.Attachments[0].Color = "good"
 	case "cancel":
-		ch.(chan bool) <- false
+		sendWithoutBlocking(ch.(chan bool), false)
 		msg.Attachments[0].Text = fmt.Sprintf("Canceled by @%s", callbackPayload.User.Name)
 		msg.Attachments[0].Color = "danger"
 	default:
@@ -212,4 +212,11 @@ func parseTimeout(str string) (int, error) {
 	}
 
 	return t, nil
+}
+
+func sendWithoutBlocking(ch chan bool, v bool) {
+	select {
+	case ch <- v:
+	default:
+	}
 }
