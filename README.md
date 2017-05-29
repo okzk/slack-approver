@@ -50,10 +50,10 @@ POSTでアクセスするとアプリがslack側にメッセージが投稿し�
 
 
 ```
-if curl -sf -XPOST https://YOUR-DOMAIN/ask -d "ch=#your_channel" -d msg="hogehoge"; then
-  echo "approved!"
+if curl -sf -XPOST https://YOUR-DOMAIN/ask -d 'ch=#your_channel' -d 'msg=hogehoge'; then
+  echo 'approved!'
 else
-  echo "not approved."
+  echo 'not approved.'
 fi
 ```
 
